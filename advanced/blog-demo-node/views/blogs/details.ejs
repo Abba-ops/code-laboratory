@@ -1,0 +1,109 @@
+<% layout("layouts/boilerplate") %>
+<div class="row justify-content-center">
+  <div class="col-md-6 mb-3 mb-md-0">
+    <div class="d-flex justify-content-between">
+      <h3 class="mb-3">Blog Details</h3>
+      <% if (user && blog.user.equals(user._id)) { %>
+      <div class="d-flex gap-2">
+        <div id="delete" class="text-danger" data-doc="<%= blog._id %>">
+          <i class="bi bi-trash3-fill"></i>
+        </div>
+        <a class="text-primary" href="/blogs/<%= blog._id %>/edit"
+          ><i class="bi bi-pencil-square"></i
+        ></a>
+      </div>
+      <% } %>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex flex-column align-items-start gap-2">
+          <span class="badge text-bg-secondary text-capitalize"
+            ><%= blog.user.username %></span
+          >
+          <h5 class="card-title"><%= blog.title %></h5>
+        </div>
+        <p class="card-text"><%= blog.body %></p>
+      </div>
+      <div class="card-footer text-body-secondary">
+        <%= moment(blog.createdAt).fromNow() %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <% if (user) { %>
+    <h4 class="mb-3">Leave a Review</h4>
+    <form
+      method="post"
+      class="needs-validation mb-3"
+      action="/blogs/<%= blog._id %>/reviews"
+      novalidate>
+      <fieldset class="starability-basic">
+        <input
+          checked
+          value="1"
+          type="radio"
+          id="no-rate"
+          name="rating"
+          class="input-no-rate"
+          aria-label="No rating." />
+        <input type="radio" id="first-rate1" name="rating" value="1" />
+        <label for="first-rate1" title="Terrible">1 star</label>
+        <input type="radio" id="first-rate2" name="rating" value="2" />
+        <label for="first-rate2" title="Not good">2 stars</label>
+        <input type="radio" id="first-rate3" name="rating" value="3" />
+        <label for="first-rate3" title="Average">3 stars</label>
+        <input type="radio" id="first-rate4" name="rating" value="4" />
+        <label for="first-rate4" title="Very good">4 stars</label>
+        <input type="radio" id="first-rate5" name="rating" value="5" />
+        <label for="first-rate5" title="Amazing">5 stars</label>
+      </fieldset>
+      <div class="input-group mb-3">
+        <input
+          id="body"
+          type="text"
+          name="body"
+          class="form-control"
+          placeholder="Add a Review..." />
+        <button class="btn btn-outline-primary" type="submit">Post</button>
+      </div>
+    </form>
+    <% } %> <% if (!blog.reviews.length) { %>
+    <div class="d-flex justify-content-center h-100 align-items-center">
+      <h3 class="text-secondary fst-italic">No Review</h3>
+    </div>
+    <% } %>
+    <ul class="list-group">
+      <% for ( let review of blog.reviews ) { %>
+      <li
+        class="list-group-item flex-column d-flex mb-2 justify-content-between">
+        <% if (review.rating >= 1) { %>
+        <div class="d-flex justify-content-between">
+          <p class="starability-result" data-rating="<%= review.rating %>"></p>
+          <% if (user && review.user.equals(user._id)) { %>
+          <form
+            method="post"
+            action="/blogs/<%= blog._id %>/reviews/<%= review._id %>?_method=DELETE"
+            class="d-inline">
+            <button class="bg-transparent border-0">
+              <i class="bi bi-trash3-fill text-danger"></i>
+            </button>
+          </form>
+          <% } %>
+        </div>
+        <% } %>
+        <div>
+          <span class="badge text-bg-secondary text-capitalize"
+            ><%= review.user.username %></span
+          >
+          <span class="text-break"><%= review.body %></span>
+        </div>
+        <div>
+          <span class="text-secondary"
+            ><%= moment(review.createdAt).fromNow() %></span
+          >
+        </div>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</div>

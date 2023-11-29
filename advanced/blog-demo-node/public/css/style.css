@@ -1,0 +1,16 @@
+body {
+  padding: 80px 0;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: none !important;
+}
+
+div#delete {
+  cursor: pointer;
+}
+
+li.blog:hover {
+  background-color: #f5f5f5;
+}

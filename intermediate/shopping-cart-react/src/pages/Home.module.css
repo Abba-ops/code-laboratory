@@ -1,0 +1,16 @@
+.productWrapper {
+  gap: 2rem;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading {
+  margin: auto;
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+}

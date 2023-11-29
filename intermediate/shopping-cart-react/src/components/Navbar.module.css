@@ -1,0 +1,23 @@
+.navWrapper {
+  padding: 1rem;
+  display: flex;
+  background: #5e5a5a;
+  justify-content: space-between;
+}
+
+.navWrapper > li {
+  color: #fff;
+  font-size: 1.2rem;
+  list-style-type: none;
+}
+
+.navWrapper > li > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cartNavLink span {
+  padding: 0 5px;
+  border-radius: 1rem;
+  background-color: #ffa430;
+}

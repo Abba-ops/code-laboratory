@@ -1,0 +1,36 @@
+<% layout("layouts/boilerplate") %>
+<div class="row justify-content-center">
+  <% if (blogs.length) { %>
+    <h3 class="mb-3">Latest Posts</h3>
+  <% } %>
+  <div class="col-md-12">
+    <ul class="list-group list-group-flush">
+      <% if (blogs.length) { %>
+        <% blogs.forEach((blog) => { %>
+          <li class="list-group-item blog d-flex flex-column flex-sm-row justify-content-between">
+            <a href="/blogs/<%= blog._id %>" class="text-decoration-none text-secondary text-truncate">
+              <%= blog.title %>
+            </a>
+            <span class="text-secondary">
+              <%= moment(blog.createdAt).fromNow() %>
+            </span>
+          </li>
+        <% }) %>
+      </ul>
+      <% if (blogs.length >= 11) { %>
+        <nav class="mt-3">
+          <ul class="pagination">
+            <li class="page-item <%= nextPage === null ? "disabled" : "" %>">
+              <a class="page-link" href="?page=<%= nextPage %>">Next</a>
+            </li>
+          </ul>
+        </nav>
+      <% } %>
+    <% } else { %>
+      <div class="text-center">
+        <p>No blogs available at the moment. Please check back later.</p>
+        <a href="/blogs/create">Create Blog</a>
+      </div>
+    <% } %>
+  </div>
+</div>

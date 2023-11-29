@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous" />
+    <title>Ninja Quiz</title>
+  </head>
+  <body>
+    <div class="py-3 bg-white text-center">
+      <div class="container">
+        <h2 class="text-success display-3 my-4">Ninja Quiz</h2>
+      </div>
+    </div>
+    <div class="py-4 d-none bg-light text-center" id="quizResult">
+      <div class="container lead">
+        <p>
+          You are
+          <span class="text-success display-4 p-3" id="quizTotalScore"></span>
+          Ninja
+        </p>
+      </div>
+    </div>
+    <div class="py-4 bg-success">
+      <div class="container">
+        <h2 class="my-5 text-white">Test your knowledge with our quiz game!</h2>
+        <form class="text-light" id="quizForm">
+          <div class="my-5">
+            <p class="lead fw-normal">1. Who invented the World Wide Web?</p>
+            <div class="form-check my-2 text-white-50">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="questionOne"
+                value="A"
+                checked />
+              <label class="form-check-label">Bill Gates</label>
+            </div>
+            <div class="form-check my-2 text-white-50">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="questionOne"
+                value="B" />
+              <label class="form-check-label">Tim Berners-Lee</label>
+            </div>
+          </div>
+          <div class="my-5">
+            <p class="lead fw-normal">
+              2. Which planet in our solar system is the largest?
+            </p>
+            <div class="form-check my-2 text-white-50">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="questionTwo"
+                value="A"
+                checked />
+              <label class="form-check-label">Mercury</label>
+            </div>
+            <div class="form-check my-2 text-white-50">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="questionTwo"
+                value="B" />
+              <label class="form-check-label">Jupiter</label>
+            </div>
+          </div>
+          <div class="my-5">
+            <p class="lead fw-normal">
+              3. In what year did the first Harry Potter book come out?
+            </p>
+            <div class="form-check my-2 text-white-50">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="questionThree"
+                value="A"
+                checked />
+              <label class="form-check-label">1997</label>
+            </div>
+            <div class="form-check my-2 text-white-50">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="questionThree"
+                value="B" />
+              <label class="form-check-label">2001</label>
+            </div>
+          </div>
+          <div class="my-5">
+            <p class="lead fw-normal">
+              4. Who painted the famous artwork "The Starry Night"?
+            </p>
+            <div class="form-check my-2 text-white-50">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="questionFour"
+                value="A"
+                checked />
+              <label class="form-check-label">Vincent van Gogh</label>
+            </div>
+            <div class="form-check my-2 text-white-50">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="questionFour"
+                value="B" />
+              <label class="form-check-label">Leonardo da Vinci</label>
+            </div>
+          </div>
+          <div class="text-center">
+            <input type="submit" class="btn btn-light" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

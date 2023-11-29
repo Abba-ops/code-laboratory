@@ -1,0 +1,18 @@
+body {
+  background-color: #333333;
+}
+
+#clock {
+  font-size: 4rem;
+  text-align: center;
+  margin: 15rem auto;
+  color: yellow;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#clock span {
+  padding: 1rem;
+  background-color: #444444;
+  display: inline-block;
+  width: 5rem;
+}
